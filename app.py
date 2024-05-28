@@ -66,12 +66,12 @@ def submit():
         # response = requests.post(api_url, json={'review': product_review})
 
         tag = get_prediction(process_review(product_review))
-        print("taseen response:")
-        print(tag)
+        #print("taseen response:")
+        #print(tag)
         tag =tag['label'][0]
-        print(tag)
+        #print(tag)
         tag=tag[len('__label__'):]
-        print(tag)
+        #print(tag)
         #tag= random.choice(["Positive", "Negative"])
         
         #Insert into MySQL
@@ -109,6 +109,11 @@ def upload():
             # api_url = 'http://yourapi.com/get_tag'
             # response = requests.post(api_url, json={'review': product_review})
             tag = get_prediction(process_review(product_review))
+            #print("taseen response:")
+            #print(tag)
+            tag =tag['label'][0]
+            #print(tag)
+            tag=tag[len('__label__'):]
             #tag= random.choice(["Positive", "Negative"])
             
             # Insert into MySQL
