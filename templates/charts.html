@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Reviews Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th,
+        td {
+            text-align: left;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .chart-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-item canvas {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product Reviews Dashboard</h1>
+
+    <div class="chart-container">
+        <div class="chart-item">
+            <h2>Product Class positive index</h2>
+            <canvas id="productClassChart"></canvas>
+        </div>
+        <div class="chart-item">
+            <h2>Product Department positive index</h2>
+            <canvas id="productDepartmentChart"></canvas>
+        </div>
+        <div class="chart-item">
+            <h2>Positive Negative Review Distribution</h2>
+            <canvas id="posNegPieChart"></canvas>
+        </div>
+    </div>
+
+    <h2>Product Classes with most negative and postive Reviews</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Age Range</th>
+                <th>Top Positive Reviews</th>
+                <th>Top Negative Reviews</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in age_range_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>
+                    {{ row[1] }},
+                    {{ row[2] }},
+                    {{ row[3] }}
+                </td>
+                <td>
+                    {{ row[4] }},
+                    {{ row[5] }},
+                    {{ row[6] }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='charts.js') }}"></script>
+    <script>
+        var productClassData = {{ product_class_data| tojson }};
+        var productDepartmentData = {{ product_department_data| tojson }};
+        var positiveNegativeData = {{ postive_negative_data| tojson }};
+
+
+    </script>
+</body>
+
+</html>
