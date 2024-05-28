@@ -64,7 +64,8 @@ def submit():
         # Call the API
         # api_url = 'http://yourapi.com/get_tag'
         # response = requests.post(api_url, json={'review': product_review})
-        tag = get_prediction(product_review)
+
+        tag = get_prediction(process_review(product_review))
         #tag= random.choice(["Positive", "Negative"])
         
         #Insert into MySQL
@@ -101,7 +102,7 @@ def upload():
             # Call the API
             # api_url = 'http://yourapi.com/get_tag'
             # response = requests.post(api_url, json={'review': product_review})
-            tag = get_prediction(product_review)
+            tag = get_prediction(process_review(product_review))
             #tag= random.choice(["Positive", "Negative"])
             
             # Insert into MySQL
