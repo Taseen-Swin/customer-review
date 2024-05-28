@@ -14,6 +14,7 @@ services:
       - MYSQL_DB=product_reviews
     volumes:
       - .:/app
+      - ./.aws:/root/.aws
     networks:
       - app-network
 
