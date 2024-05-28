@@ -66,8 +66,8 @@ def submit():
         # response = requests.post(api_url, json={'review': product_review})
 
         tag = get_prediction(process_review(product_review))
-        print(tag)
-        tag =tag[1]['label'][0]
+        print("taseen response:"+tag)
+        tag =tag['label'][0]
         print(tag)
         tag=tag[len('__label__'):]
         print(tag)
