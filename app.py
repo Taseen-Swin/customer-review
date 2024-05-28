@@ -22,7 +22,7 @@ mysql = MySQL(app)
 
 
 # SageMaker endpoint configuration
-SAGEMAKER_ENDPOINT_NAME = "https://runtime.sagemaker.us-east-2.amazonaws.com/endpoints/nlp-blaztext-model-endpoint/invocations"  # Replace with your endpoint name
+SAGEMAKER_ENDPOINT_NAME = "nlp-blaztext-model-endpoint"  # Replace with your endpoint name
 REGION = "us-east-2"  # Replace with your AWS region
  
 # Initialize SageMaker runtime client
